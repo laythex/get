@@ -75,14 +75,15 @@ try:
 
     # Запись параметров эксперимента в файл
     with open('settings.txt', 'w') as data:
-        frequency_str = 'Средняя частота дискретизации:' + '{:.2f}'.format(num_values / t_length) + 'Гц'
-        step_str = 'Шаг квантования АЦП:' + '{:.3f}'.format(3.3 / 256) + 'В'
+        frequency_str = 'Средняя частота дискретизации (Гц): ' + '{:.2f}'.format(num_values / t_length)
+        step_str = 'Шаг квантования АЦП (В): ' + '{:.3f}'.format(3.3 / 256)
         data.write(frequency_str)
+        data.write('\n')
         data.write(step_str)
     
     # Вывод резултатов эксперимента в терминал
     print('Время эксперимента:', '{:.2f}'.format(t_length), 'с')
-    print('Период одного измерения:', '{:.2f}'.format(t_length / num_values), 'с')
+    print('Период одного измерения:', '{:.3f}'.format(t_length / num_values), 'с')
     print('Средняя частота дискретизации:', '{:.2f}'.format(num_values / t_length), 'Гц')
     print('Шаг квантования АЦП:', '{:.3f}'.format(3.3 / 256), 'В')
 
